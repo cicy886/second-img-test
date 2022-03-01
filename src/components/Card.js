@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
-
   return (
     <React.Fragment>
       <div onClick = {() => props.whenCardClicked(props.id)}>
@@ -11,4 +11,10 @@ const Card = (props) => {
   )
 }
 
-export default Card
+Card.propTypes = {
+  src: PropTypes.string,
+  name: PropTypes.string,
+  whenCardClicked: PropTypes.func
+}
+
+export default Card;

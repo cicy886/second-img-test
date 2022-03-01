@@ -1,9 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const CardDetailPopup = () => {
+const CardDetailPopup = (props) => {
+  // return (props.popupTrigger)?(
+  //   <React.Fragment>
+  //     <div className="cardDetailPopup">
+  //       <div classNmae="popup-inner">
+  //         <button calssName="close-btn" onClick={()=>props.setPopupTrigger(false)}>close</button>
+  //       </div>
+  //     </div>
+  //   </React.Fragment>
+  // ):"";
   return (
-    <div>CardDetailPopup</div>
-  )
-}
+    <React.Fragment>
+      <h3>Hi</h3>
+    </React.Fragment>
+  );
+};
 
-export default CardDetailPopup
+export default CardDetailPopup;

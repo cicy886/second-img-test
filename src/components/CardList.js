@@ -2,7 +2,6 @@ import React from 'react';
 import Card from './Card';
 
 const CardList = ({card, onCardSelection}) => {
-
   return (
     <React.Fragment>
       {Object.values(card).map((singleCard, index) => (
