@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 body {
@@ -12,19 +12,61 @@ body {
   /* background: url("img/themes/backgroundImage.gif"); */
 }
 
-main{
+/* main{
   padding: 32px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   min-height: 100vh;
+} */
+
+.mainContainer {
+  margin: 10px;
+  perspective: 700;
+  display: flex;
 }
 
-img {
+.theCard {
+  width: 200px;
+  height: 200px;
+  transition: all 0.6s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.theFront {
+  background: linear-gradient(
+    to top,
+    rgba(103, 58, 183, 0.6) 0%,
+    rgba(156, 39, 176, 0.6) 50%
+  );
+  background-size: cover;
+  color: white;
+}
+
+.theBack {
+  transform: rotateY(180deg);
+}
+
+.thefront,
+.theBack {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 2px 5px gray;
+}
+
+/* img {
   width: 280px;
   height: 400px;
   padding: 20px;
-}
+} */
 
 .cardDetailPopup {
   position: fixed;
@@ -32,14 +74,14 @@ img {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0,0,0,0.2);
+  background-color: rgba(0, 0, 0, 0.2);
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.popup-inner{
+.popup-inner {
   position: relative;
   padding: 32px;
   width: 100%;
@@ -48,12 +90,11 @@ img {
   overflow-y: scroll;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
-  background-color: #FFF;
-  /* letter-spacing: 1px; */
+  background-color: #fff;
   line-height: 1.6;
 }
 
-.popup-inner .close-btn{
+.popup-inner .close-btn {
   position: absolute;
   top: 16px;
   right: 16px;

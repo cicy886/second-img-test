@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Card = (props) => {
+
   return (
     <React.Fragment>
-      <div className = "card" onDoubleClick = {() => props.whenCardClicked(props.id)}>
-      <img src = {require(`./../img/cards/${props.singleCard}.jpg`)} alt={props.name}/>
+      <div onDoubleClick = {() => props.whenCardClicked(props.id)}>
+      <img src = {require(`./../img/cards/${props.singleCard}.jpg`)} alt={props.name} />
       </div>
     </React.Fragment>
   )
 }
 
 Card.propTypes = {
-  src: PropTypes.string,
+  singleCard: PropTypes.string,
   name: PropTypes.string,
   whenCardClicked: PropTypes.func
 }

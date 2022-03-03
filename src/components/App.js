@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import CardList from "./CardList";
 import CardDetailPopup from "./CardDetailPopup";
 
-const App = () => {
+function App() {
   const API_URL = "https://rws-cards-api.herokuapp.com/api/v1/cards/";
-  //const [reqType, setReqType] =useState('');
+
+  // reqType use for random route
+  const [reqType, setReqType] = useState("");
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState(false);
@@ -12,7 +14,7 @@ const App = () => {
   useEffect(() => {
     const fetchCards = async () => {
       try {
-        const response = await fetch(`${API_URL}`);
+        const response = await fetch(`${API_URL}${reqType}`);
         const data = await response.json();
         setCards(data);
       } catch (error) {
@@ -21,7 +23,7 @@ const App = () => {
     };
 
     fetchCards();
-  }, []);
+  }, [reqType]);
 
   const handleChangingSelectedCard = (id) => {
     const selectedCard = cards.cards[id];
@@ -31,25 +33,36 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <div className="App">
-        <main>
-        {Object.values(cards).map((card, index) => (
-          <CardList
-            card={card}
-            key={index}
-            id={index}
-            onCardSelection={handleChangingSelectedCard}
-          />
-        ))}
-          </main>
+      <div className="app">
+        <div className="mainContainer">
+          {Object.values(cards).map((card, index) => (
+            <div className="theCard" key={index}>
+              <div className="theFront">
+                <CardList
+                  key={index}
+                  card={card}
+                  id={index}
+                  onCardSelection={handleChangingSelectedCard}
+                />
+              </div>
+              <div className="theBack">
+              <img
+                src={require("./../img/themes/backOfTheCard.jpg")}
+                alt="back of the card"
+              />
+              </div>
+            </div>
+          ))}
+          </div>
+        </div>
+
         <CardDetailPopup
           popupTrigger={popupTrigger}
           setPopupTrigger={setPopupTrigger}
           selectedCard={selectedCard}
         />
-      </div>
     </React.Fragment>
   );
-};
+}
 
 export default App;
