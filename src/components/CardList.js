@@ -10,6 +10,7 @@ const CardList = ({card, onCardSelection}) => {
         key = {index}
         id = {index}
         singleCard = {singleCard.name_short}
+        name = {singleCard.name}
         />
       ))}
     </React.Fragment>
