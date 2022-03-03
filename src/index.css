@@ -17,8 +17,6 @@ main{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* align-items: center;
-  justify-content: center; */
   min-height: 100vh;
 }
 
@@ -46,7 +44,13 @@ img {
   padding: 32px;
   width: 100%;
   max-width: 640px;
+  height: 600px;
+  overflow-y: scroll;
+  scrollbar-color: rebeccapurple green;
+  scrollbar-width: thin;
   background-color: #FFF;
+  /* letter-spacing: 1px; */
+  line-height: 1.6;
 }
 
 .popup-inner .close-btn{
