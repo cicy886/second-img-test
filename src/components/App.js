@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CardList from "./CardList";
 import CardDetailPopup from "./CardDetailPopup";
+// import ReactCardFlip from "react-card-flip";
+// import cardBack from "./../img/themes/backOfTheCard.jpg";
 
 function App() {
   const API_URL = "https://rws-cards-api.herokuapp.com/api/v1/cards/";
@@ -34,33 +36,27 @@ function App() {
   return (
     <React.Fragment>
       <div className="app">
-        <div className="mainContainer">
-          {Object.values(cards).map((card, index) => (
-            <div className="theCard" key={index}>
-              <div className="theFront">
-                <CardList
-                  key={index}
-                  card={card}
-                  id={index}
-                  onCardSelection={handleChangingSelectedCard}
-                />
-              </div>
-              <div className="theBack">
-              <img
-                src={require("./../img/themes/backOfTheCard.jpg")}
-                alt="back of the card"
+        <div className="main">
+          <div
+            className="container-fluid"
+            style={{ display: "flex", flexWrap: "wrap", margin: "10px 130px" }}
+          >
+            {Object.values(cards).map((card, index) => (
+              <CardList
+                key={index}
+                card={card}
+                id={index}
+                onCardSelection={handleChangingSelectedCard}
               />
-              </div>
-            </div>
-          ))}
+            ))}
           </div>
         </div>
-
         <CardDetailPopup
           popupTrigger={popupTrigger}
           setPopupTrigger={setPopupTrigger}
           selectedCard={selectedCard}
         />
+      </div>
     </React.Fragment>
   );
 }
