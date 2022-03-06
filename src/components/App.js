@@ -1,5 +1,5 @@
 import React from "react";
-import CardSpread from "./CardSpread";
+import CardSpreadList from "./CardSpreadList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import CardControl from "./CardControl";
@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/cardSpread">
-          <CardSpread />
+          <CardSpreadList />
         </Route>
         <Route path="/">
           <CardControl />

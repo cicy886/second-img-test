@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import CardList from "./CardList";
 import CardDetailPopup from "./CardDetailPopup";
 
-const CardControl = () => {
-  const API_URL = "https://rws-cards-api.herokuapp.com/api/v1/cards/";
+const CardSpreadList = () => {
+  const API_URL = "https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=5";
 
-  // reqType use for random route
-  // const [reqType, setReqType] = useState("");
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState(false);
@@ -58,7 +56,7 @@ const CardControl = () => {
         selectedCard={selectedCard}
       />
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default CardControl;
+export default CardSpreadList;
