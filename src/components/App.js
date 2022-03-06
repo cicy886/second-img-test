@@ -1,6 +1,4 @@
 import React from "react";
-// import CardList from "./CardList";
-// import CardDetailPopup from "./CardDetailPopup";
 import CardSpread from "./CardSpread";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";

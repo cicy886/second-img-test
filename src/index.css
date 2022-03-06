@@ -12,7 +12,7 @@ body {
   /* background: url("img/themes/backgroundImage.gif"); */
 }
 
-main{
+main {
   padding: 32px;
   display: flex;
   flex-direction: row;
@@ -60,4 +60,25 @@ img {
 
 #cardImage:hover {
   transform: scale(1.2);
+}
+
+/* .navBar {
+  display: inline-block;
+    margin: 3px;
+    padding: 4px;
+    column-count: 2;
+} */
+
+.column {
+  float: left;
+  width: 50%;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  box-sizing: border-box;
 }
