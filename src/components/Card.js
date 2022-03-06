@@ -10,11 +10,12 @@ const Card = (props) => {
     <React.Fragment>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <div
+          id='cardImage'
           className="cardFront"
           onClick = {() => setFlipped((prev) => !prev)}
         >
           <div>
-            <span className="card" role="img" aria-label="emojis">
+            <span className="card" role="img" aria-label="cards">
             <img src={cardBack} alt='back of the card'/>
             </span>
           </div>
