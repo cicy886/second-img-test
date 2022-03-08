@@ -13,6 +13,9 @@ const Header = () => {
         <div className="column">
           <Link to="/cardSpread">Card Spread</Link>
         </div>
+        <div className="column">
+          <Link to="/category">Category</Link>
+        </div>
       </div>
     </React.Fragment>
   );
