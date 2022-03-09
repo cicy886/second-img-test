@@ -2,14 +2,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Fira Sans", sans-serif;
+  font-family: "PT Sans", sans-serif;
 }
 
 body {
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
-  /* background: url("img/themes/backgroundImage.gif"); */
+  width: 100%;
+
 }
 
 main {
