@@ -28,15 +28,18 @@ const CardSpreadControl = () => {
   const handleChangingSelectedCard = (id) => {
     const selectedCard = cards.cards[id];
     setSelectedCard(selectedCard);
+    // setRandomCard(randomCard.concat(selectedCard));
+    // let randomImageIndex = Math.floor( Math.random()*randomCard.length);
+    
     setPopupTrigger(true);
   };
   
-  const handleRandomCard = (id) => {
-    setRandomCard(randomCard.concat(cards.cards[id]));
-    const shuffled = [...randomCard].sort(()=>0.5-Math.random());
-    const num= Math.floor(Math.random()*4);
-    return shuffled.slice(0,num);
-  }
+  // const handleRandomCard = (id) => {
+  //   setRandomCard(randomCard.concat(cards.cards[id]));
+  //   const shuffled = [...randomCard].sort(()=>0.5-Math.random());
+  //   const num= Math.floor(Math.random()*4);
+  //   return shuffled.slice(0,num);
+  // }
 
   return (
     <React.Fragment>
@@ -55,7 +58,7 @@ const CardSpreadControl = () => {
               card={card}
               id={index}
               onCardSelection={handleChangingSelectedCard}
-              onRandomCardArray={handleRandomCard}
+              // onRandomCardArray={handleRandomCard}
             />
           ))}
         </div>
