@@ -9,7 +9,8 @@ const CardSpreadControl = () => {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState(false);
-  const [randomCard, setRandomCard] = useState([]);
+  // const [randomCard, setRandomCard] = useState(0);
+  // const [cardArray, setCardArray] = useState([]);
 
   useEffect(() => {
     const fetchCards = async () => {
@@ -28,11 +29,9 @@ const CardSpreadControl = () => {
   const handleChangingSelectedCard = (id) => {
     const selectedCard = cards.cards[id];
     setSelectedCard(selectedCard);
-    // setRandomCard(randomCard.concat(selectedCard));
-    // let randomImageIndex = Math.floor( Math.random()*randomCard.length);
-    
     setPopupTrigger(true);
   };
+
   
   // const handleRandomCard = (id) => {
   //   setRandomCard(randomCard.concat(cards.cards[id]));
@@ -40,6 +39,20 @@ const CardSpreadControl = () => {
   //   const num= Math.floor(Math.random()*4);
   //   return shuffled.slice(0,num);
   // }
+
+  // const handleCardRotate = () =>
+  // {
+  //   const cardArray=cards.cards;
+  //   setCardArray(cardArray);
+  //   // const randomCard = cardArray[Math.floor( Math.random()*cardArray.length)];
+  //   // setRandomCard(randomCard);
+  //   setRandomCard(Math.floor(Math.random() * cardArray.length));
+  //   // if(cardArray[randomCard].name_short = selectedCard.name_short){
+  //   //   <img src='' />
+  //   // }
+  // };
+
+
 
   return (
     <React.Fragment>
@@ -58,7 +71,9 @@ const CardSpreadControl = () => {
               card={card}
               id={index}
               onCardSelection={handleChangingSelectedCard}
-              // onRandomCardArray={handleRandomCard}
+              // onCardRotate={handleCardRotate}
+              // randomCard={randomCard}
+              // cardArray={cardArray}
             />
           ))}
         </div>

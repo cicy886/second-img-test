@@ -1,18 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CardSpread from './CardSpread';
 
 
 const CardSpreadList = ({card, onCardSelection}) => {
+
+  const [activeCard, setActiveCard] = useState(0);
+  const randomCards = () => {
+    setActiveCard(Math.floor(Math.random() * card.length))
+  }
+
   return (
     <React.Fragment>
       {Object.values(card).map((singleCard, index) => (
         <CardSpread 
         whenCardDoubleClicked = {onCardSelection}
-        // randomlyRotateCard = {onRandomCardArray}
         key = {index}
         id = {index}
         singleCard = {singleCard.name_short}
         name = {singleCard.name}
+        rotateCard = {card[activeCard].name_short}
+        whenCardRoate={randomCards}
+        // randomCard = {cardArray[randomCard].name_short}
+        // whenCardRotate = {onCardRotate}
+        // cardArray={cardArray}
         />
       ))}
     </React.Fragment>

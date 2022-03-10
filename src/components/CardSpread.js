@@ -15,45 +15,70 @@ const CardSpread = (props) => {
   // }
 
   const animateCard = () => {
-
     let transform = `rotate(180deg)`;
     return transform;
-  }
+  };
+  const RotatedCard = () => {
+    if (props.rotateCard === props.singleCard) { 
+      return(
+        <img
+        src={require(`./../img/cards/${
+          props.rotateCard
+        }.jpg`)}
+        alt={props.name}
+        style={{ transform: animateCard() }}
+      />
+      )
+      
+    } else {
+
+      return (
+        <img
+        src={require(`./../img/cards/${props.singleCard}.jpg`)}
+        alt={props.name}
+      />
+      )
+      
+    }
+  };
 
   return (
     <React.Fragment>
       <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <div
-          id='cardImage'
+          id="cardImage"
           className="cardFront"
-          onClick = {() => setFlipped((prev) => !prev) }
+          onClick={() => [setFlipped((prev) => !prev), props.whenCardRotate]}
         >
-          <div
-          className="randomCardRotate"
-          onClick={()=>props.randomlyRotateCard(props.id)}
-          >
             <div>
-            <span className="card" role="img" aria-label="cards">
-            <img src={cardBack} alt='back of the card'/>
-            </span>
-          </div>
-        </div>
+              <span className="card" role="img" aria-label="cards">
+                <img src={cardBack} alt="back of the card" />
+              </span>
             </div>
-          
+          </div>
 
         <div
           onDoubleClick={() => props.whenCardDoubleClicked(props.id)}
-          // onClick={()=>props.randomlyRotateCard(props.id)}
           className="CardBack"
+          // onClick = {props.whenCardRotate}
         >
-          <img src={require(`./../img/cards/${props.singleCard}.jpg`)} alt={props.name} />
-          <img src={require(`./../img/cards/${props.singleCard}.jpg`)} alt={props.name} style={{ transform:animateCard()}} />
+          {/* <img
+        src={require(`./../img/cards/${
+          props.rotateCard
+        }.jpg`)}
+        alt={props.name}
+        style={{ transform: animateCard() }}
+      /> */}
+          {/* <img
+            src={require(`./../img/cards/${props.singleCard}.jpg`)}
+            alt={props.name}
+          /> */}
+          {RotatedCard()}
         </div>
       </ReactCardFlip>
-
     </React.Fragment>
   );
-}
+};
 
 CardSpread.propTypes = {
   singleCard: PropTypes.string,
