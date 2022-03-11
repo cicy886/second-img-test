@@ -11,7 +11,9 @@ const CardSpreadList = ({card, onCardSelection}) => {
 
   return (
     <React.Fragment>
+      
       {Object.values(card).map((singleCard, index) => (
+        <div onClick={randomCards}>
         <CardSpread 
         whenCardDoubleClicked = {onCardSelection}
         key = {index}
@@ -19,12 +21,15 @@ const CardSpreadList = ({card, onCardSelection}) => {
         singleCard = {singleCard.name_short}
         name = {singleCard.name}
         rotateCard = {card[activeCard].name_short}
-        whenCardRoate={randomCards}
+        // whenCardRoate={randomCards}
         // randomCard = {cardArray[randomCard].name_short}
         // whenCardRotate = {onCardRotate}
         // cardArray={cardArray}
         />
+        </div>
       ))}
+
+      
     </React.Fragment>
   )
 }
