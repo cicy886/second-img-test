@@ -4,11 +4,23 @@ import CardDetailPopup from "./CardDetailPopup";
 
 
 const CardSpreadControl = () => {
+
+  const randomizeNumber = () => {
+    const number = Math.floor(Math.random() * 4) + 1;
+    return number;
+  }
+  
   const API_URL = "https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=5";
 
+  // const [reqType, setReqType] = useState("random?n=5");
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState(false);
+  // const [value,setValue] = useState();
+  const [activeCard, setActiveCard] = useState(randomizeNumber());
+  const handleRandomCards = () => {
+    setActiveCard(Math.floor(Math.random() * cards.cards.length))
+  }
   // const [randomCard, setRandomCard] = useState(0);
   // const [cardArray, setCardArray] = useState([]);
 
@@ -32,6 +44,11 @@ const CardSpreadControl = () => {
     setPopupTrigger(true);
   };
 
+  const handleRefresh = ()=>{
+    // it re-renders the component
+    window.location.reload();
+}
+  
   
   // const handleRandomCard = (id) => {
   //   setRandomCard(randomCard.concat(cards.cards[id]));
@@ -57,6 +74,10 @@ const CardSpreadControl = () => {
   return (
     <React.Fragment>
       <div className="main">
+        {/* <ResetSpreadCard 
+        onRefresh={handleRefresh}
+        onRandomCards={handleRandomCards}/> */}
+
         <div
           className="container-fluid"
           style={{
@@ -70,6 +91,7 @@ const CardSpreadControl = () => {
               key={index}
               card={card}
               id={index}
+              activeCard={activeCard}
               onCardSelection={handleChangingSelectedCard}
               // onCardRotate={handleCardRotate}
               // randomCard={randomCard}
@@ -77,6 +99,7 @@ const CardSpreadControl = () => {
             />
           ))}
         </div>
+        <button onClick={handleRefresh}>Try Again!</button>
       </div>
       <CardDetailPopup
         popupTrigger={popupTrigger}

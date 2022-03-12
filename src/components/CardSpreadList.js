@@ -2,18 +2,18 @@ import React, {useState} from 'react';
 import CardSpread from './CardSpread';
 
 
-const CardSpreadList = ({card, onCardSelection}) => {
+const CardSpreadList = ({card, onCardSelection, activeCard}) => {
 
-  const [activeCard, setActiveCard] = useState(0);
-  const randomCards = () => {
-    setActiveCard(Math.floor(Math.random() * card.length))
-  }
+  // const [activeCard, setActiveCard] = useState(0);
+  // const randomCards = () => {
+  //   setActiveCard(Math.floor(Math.random() * card.length))
+  // }
 
   return (
     <React.Fragment>
       
       {Object.values(card).map((singleCard, index) => (
-        <div onClick={randomCards}>
+        // <div onClick={randomCards}>
         <CardSpread 
         whenCardDoubleClicked = {onCardSelection}
         key = {index}
@@ -26,7 +26,7 @@ const CardSpreadList = ({card, onCardSelection}) => {
         // whenCardRotate = {onCardRotate}
         // cardArray={cardArray}
         />
-        </div>
+        // </div>
       ))}
 
       

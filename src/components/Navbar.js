@@ -32,7 +32,7 @@ const Navbar = () => {
       <nav className="navbar">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           Tarot Card Reader
-          <i className='fab fa-firstdraft' />
+          <i className="fab fa-firstdraft" />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
@@ -43,9 +43,10 @@ const Navbar = () => {
               Home
             </Link>
           </li>
-          <li className="nav-item"
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
+          <li
+            className="nav-item"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
             <Link
               to="/categories"
@@ -57,9 +58,11 @@ const Navbar = () => {
             {dropdown && <Dropdown />}
           </li>
           <li className="nav-item">
-            <Link 
-            to="/card-spread" className="nav-links" 
-            onClick={closeMobileMenu}>
+            <Link
+              to="/card-spread"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
               Card Spread
             </Link>
           </li>
