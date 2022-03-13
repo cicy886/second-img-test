@@ -31,11 +31,8 @@ const CardSpread = (props) => {
         style={{ transform: animateCard() }}
       />
         </div>
-        
       )
-      
     } else {
-
       return (
         <div onDoubleClick={() => props.whenUprightCardDoubleClicked(props.id)}
         className="CardBack">

@@ -8,7 +8,7 @@ import CardReversalDetailPopup from './CardReversalDetailPopup';
 const CardSpreadControl = () => {
 
   const randomizeNumber = () => {
-    const number = Math.floor(Math.random() * 4) + 1;
+    const number = Math.floor(Math.random() * 4);
     return number;
   }
   
