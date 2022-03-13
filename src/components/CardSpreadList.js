@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import CardSpread from './CardSpread';
 
 
-const CardSpreadList = ({card, onCardSelection, activeCard}) => {
+const CardSpreadList = ({card, onUprightCardSelection, onReversalCardSelection, activeCard}) => {
 
   // const [activeCard, setActiveCard] = useState(0);
   // const randomCards = () => {
@@ -15,7 +15,8 @@ const CardSpreadList = ({card, onCardSelection, activeCard}) => {
       {Object.values(card).map((singleCard, index) => (
         // <div onClick={randomCards}>
         <CardSpread 
-        whenCardDoubleClicked = {onCardSelection}
+        whenUprightCardDoubleClicked = {onUprightCardSelection}
+        whenReversalCardDoubleClicked = {onReversalCardSelection}
         key = {index}
         id = {index}
         singleCard = {singleCard.name_short}

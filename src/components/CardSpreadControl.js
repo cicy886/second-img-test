@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import CardSpreadList from './CardSpreadList';
 import CardDetailPopup from "./CardDetailPopup";
+import CardUprightDetailPopup from './CardUprightDetailPopup';
+import CardReversalDetailPopup from './CardReversalDetailPopup';
 
 
 const CardSpreadControl = () => {
@@ -16,6 +18,8 @@ const CardSpreadControl = () => {
   const [cards, setCards] = useState([]);
   const [selectedCard, setSelectedCard] = useState(null);
   const [popupTrigger, setPopupTrigger] = useState(false);
+  const [uprightPopupTrigger, setUprightPopupTrigger] = useState(false);
+  const [reversalPopupTrigger, setReversalPopupTrigger] = useState(false);
   // const [value,setValue] = useState();
   const [activeCard, setActiveCard] = useState(randomizeNumber());
   const handleRandomCards = () => {
@@ -42,6 +46,18 @@ const CardSpreadControl = () => {
     const selectedCard = cards.cards[id];
     setSelectedCard(selectedCard);
     setPopupTrigger(true);
+  };
+
+  const handleChangingSelectedCardUpright = (id) => {
+    const selectedCard = cards.cards[id];
+    setSelectedCard(selectedCard);
+    setUprightPopupTrigger(true);
+  };
+
+  const handleChangingSelectedCardReversal = (id) => {
+    const selectedCard = cards.cards[id];
+    setSelectedCard(selectedCard);
+    setReversalPopupTrigger(true);
   };
 
   const handleRefresh = ()=>{
@@ -92,18 +108,24 @@ const CardSpreadControl = () => {
               card={card}
               id={index}
               activeCard={activeCard}
-              onCardSelection={handleChangingSelectedCard}
+              onUprightCardSelection={handleChangingSelectedCardUpright}
+              onReversalCardSelection={handleChangingSelectedCardReversal}
               // onCardRotate={handleCardRotate}
               // randomCard={randomCard}
               // cardArray={cardArray}
             />
           ))}
         </div>
-        <button onClick={handleRefresh}>Try Again!</button>
+        <button className='shuffle-btn' onClick={handleRefresh}>Try Again!</button>
       </div>
-      <CardDetailPopup
-        popupTrigger={popupTrigger}
-        setPopupTrigger={setPopupTrigger}
+      <CardUprightDetailPopup
+        uprightPopupTrigger={uprightPopupTrigger}
+        setUprightPopupTrigger={setUprightPopupTrigger}
+        selectedCard={selectedCard}
+      />
+      <CardReversalDetailPopup
+        reversalPopupTrigger={reversalPopupTrigger}
+        setReversalPopupTrigger={setReversalPopupTrigger}
         selectedCard={selectedCard}
       />
     </React.Fragment>
